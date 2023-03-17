@@ -38,6 +38,7 @@ public:
 	sf::Vector2f pos;
 	sf::Color color;
 	sf::CircleShape body;
+	sf::Vertex trail[2];
 	Earth() {
 		radius = 20;
 		pos = sf::Vector2f(width / 2, height / 2 - 350);
@@ -48,6 +49,8 @@ public:
 		body.setFillColor(color);
 		o_velocity.x = 15.f;
 		o_velocity.y = 0;
+		trail[0] = pos;
+		trail[1] = pos;
 	}
 	Earth(float r, sf::Vector2f p, sf::Color c) {
 		radius = r; pos = p; color = c;
@@ -59,6 +62,7 @@ public:
 		o_velocity.y = 0;
 	}
 	void update(Sun sun) {
+		trail[0] = pos;
 		g_acceleration = sun.pos - pos;
 		g_acceleration = normalize(g_acceleration);
 		g_am = (G * sun.mass) / (R * R);
@@ -66,6 +70,7 @@ public:
 		g_acceleration.y *= g_am;
 		o_velocity += g_acceleration;
 		pos += o_velocity;
+		trail[1] = pos;
 		body.setPosition(pos);
 	}
 	sf::Vector2f normalize(sf::Vector2f vec) {
@@ -92,6 +97,7 @@ int main() {
 		window.clear(sf::Color::Black);
 		window.draw(sun.body);
 		window.draw(earth.body);
+		window.draw(earth.trail, 2, sf::Lines);
 		window.display();
 		earth.update(sun);
 	}
