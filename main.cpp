@@ -40,13 +40,13 @@ public:
 	sf::CircleShape body;
 	Earth() {
 		radius = 20;
-		pos = sf::Vector2f(width / 2, height / 2 - 400);
+		pos = sf::Vector2f(width / 2, height / 2 - 350);
 		color = sf::Color::Blue;
 		body.setRadius(radius);
 		body.setPosition(pos);
 		body.setOrigin(body.getRadius(), body.getRadius());
 		body.setFillColor(color);
-		o_velocity.x = 8.5f;
+		o_velocity.x = 15.f;
 		o_velocity.y = 0;
 	}
 	Earth(float r, sf::Vector2f p, sf::Color c) {
