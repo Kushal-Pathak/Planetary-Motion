@@ -31,7 +31,7 @@ public:
 class Earth {
 public:
 	float radius = 20;
-	float g_am = 0;
+	float g_am = 0; // gravitaional acceleration magnitude
 	float R = 10, G = 1000;
 	sf::Vector2f g_acceleration;
 	sf::Vector2f o_velocity;
@@ -66,8 +66,7 @@ public:
 		g_acceleration = sun.pos - pos;
 		g_acceleration = normalize(g_acceleration);
 		g_am = (G * sun.mass) / (R * R);
-		g_acceleration.x *= g_am;
-		g_acceleration.y *= g_am;
+		g_acceleration *= g_am;
 		o_velocity += g_acceleration;
 		pos += o_velocity;
 		trail[1] = pos;
