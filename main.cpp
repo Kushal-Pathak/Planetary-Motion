@@ -3,7 +3,6 @@
 #include <Windows.h>
 #define height 900
 #define width 1200
-
 class Sun {
 public:
 	float mass = 100000, radius = 50;
@@ -27,7 +26,6 @@ public:
 		body.setFillColor(color);
 	}
 };
-
 class Earth {
 public:
 	float radius = 20;
@@ -48,9 +46,6 @@ public:
 		body.setOrigin(body.getRadius(), body.getRadius());
 		body.setFillColor(color);
 		o_velocity.x = 15.f;
-		o_velocity.y = 0;
-		trail[0] = pos;
-		trail[1] = pos;
 	}
 	Earth(float r, sf::Vector2f p, sf::Color c) {
 		radius = r; pos = p; color = c;
@@ -80,7 +75,6 @@ public:
 		return vec;
 	}
 };
-
 int main() {
 	sf::RenderWindow window(sf::VideoMode(width, height), "My Window");
 	Sun sun;
