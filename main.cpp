@@ -4,7 +4,7 @@
 #define width 1200
 class Sun {
 public:
-	float mass = 100000, radius = 50;
+	float mass = 100000, radius = 50; // mass and radius of sun body
 	sf::Vector2f pos;
 	sf::Color color;
 	sf::CircleShape body;
@@ -27,12 +27,12 @@ public:
 };
 class Earth {
 public:
-	float radius = 20;
-	float g_am = 0; // gravitaional acceleration magnitude
-	float R = 10, G = 1000;
-	sf::Vector2f g_acceleration;
-	sf::Vector2f o_velocity;
-	sf::Vector2f pos;
+	float radius = 20; // radius of earth body
+	float g_am = 0; // magnitude of gravitaional acceleration
+	float R = 10, G = 1000; // radius of orbit and universal gravitation constant
+	sf::Vector2f g_acceleration; // gravitational acceleration vector
+	sf::Vector2f o_velocity; // orbital velocity vector
+	sf::Vector2f pos; // position of earth
 	sf::Color color;
 	sf::CircleShape body;
 	sf::Vertex trail[2];
