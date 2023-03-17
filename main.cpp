@@ -1,5 +1,4 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include <Windows.h>
 #define height 900
 #define width 1200
